@@ -1,0 +1,216 @@
+newmtl Building_Bottom_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Bottom_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl Buliding_Top_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl Fridge_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Detail_Objects_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl Ground_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl Vaso4:Glass
+illum 4
+Kd 0.80 0.76 0.46
+Ka 0.00 0.00 0.00
+Tf 0.22 0.22 0.22
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 96.08
+newmtl lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd fondo-textura-hormigon-liso-gris_53876-108388.jpg
+Ni 1.00
+newmtl pasted__Building_Bottom_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Bottom_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__Buliding_Top_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__Fridge_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Detail_Objects_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__Ground_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__Building_Bottom_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Bottom_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__Buliding_Top_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__Fridge_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Detail_Objects_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__Ground_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__Building_Bottom_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Bottom_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__Buliding_Top_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__Fridge_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Detail_Objects_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__Ground_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__pasted__Building_Bottom_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Bottom_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__pasted__Buliding_Top_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__pasted__Fridge_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Detail_Objects_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl pasted__pasted__pasted__pasted__Ground_lowFBXASC046000SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Building_Top_albedo.jpg
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 23.00
+newmtl saletros1:lambert18SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 00.png
+Ni 1.00
+newmtl saletros1:lambert21SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd textura-cemento_1194-6501.png
+Ni 1.00
+newmtl saletros1:lambert22SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd sp-1009f-vidrio-spectrum-system-96.jpg
+Ni 1.00

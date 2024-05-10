@@ -1,0 +1,20 @@
+﻿  318126218_Proyecto-Final_GPO8.cpp
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\mesh.h(88,50): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+  (compilando archivo de origen "318126218_Proyecto-Final_GPO8.cpp")
+  
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(320,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(583,26): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(603,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(603,65): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(605,26): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(665,15): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(672,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(678,15): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(684,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(833,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(834,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(838,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(839,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(841,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\roal0\Documents\318126218_GPO08_PROYECTOFINAL2024-2\ProyectoFinal\318126218_Proyecto-Final_GPO8.cpp(842,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+LINK : fatal error LNK1104: no se puede abrir el archivo 'soil2-debug.lib'
