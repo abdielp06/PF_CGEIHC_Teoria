@@ -137,29 +137,12 @@ int main()
 	Shader Anim("Shaders/anim.vs", "Shaders/anim.frag");
 	Shader Humo("Shaders/animHumo.vs", "Shaders/animHumo.frag");
 
-	Model Piso((char*)"Models/ProyectoFinal/Piso.obj");
-	Model boton((char*)"Models/ProyectoFinal/boton.obj");
-	Model cazo((char*)"Models/ProyectoFinal/cazo.obj");
-	Model cortina((char*)"Models/ProyectoFinal/cortina.obj");
-	Model cuarto((char*)"Models/ProyectoFinal/cuarto.obj");
-	Model cuchara((char*)"Models/ProyectoFinal/cuchara.obj");
-	Model estufa((char*)"Models/ProyectoFinal/estufa.obj");
-	Model exterior((char*)"Models/ProyectoFinal/exterior.obj");
-	Model lamparas((char*)"Models/ProyectoFinal/lamparas.obj");
-	Model objetosE((char*)"Models/ProyectoFinal/objetosE.obj");
-	Model platos((char*)"Models/ProyectoFinal/platos.obj");
-	Model puertaRefri((char*)"Models/ProyectoFinal/puertaRefri.obj");
-	Model refri((char*)"Models/ProyectoFinal/refri.obj");
-	Model refriDentro((char*)"Models/ProyectoFinal/refri_dentro.obj");
-	Model saleros((char*)"Models/ProyectoFinal/saleros.obj");
-	Model Sea((char*)"Models/ProyectoFinal/Sea.obj");
-	Model silla((char*)"Models/ProyectoFinal/silla.obj");
-	Model techo((char*)"Models/ProyectoFinal/techo.obj");
-	Model trastero((char*)"Models/ProyectoFinal/trastero.obj");
-	Model vaso((char*)"Models/ProyectoFinal/vaso.obj");
-	Model vasos((char*)"Models/ProyectoFinal/vasos.obj");
-	Model ventana((char*)"Models/ProyectoFinal/ventana.obj");
-	Model HumoD((char*)"Models/ProyectoFinal/humo.obj");
+	Model Techo((char*)"Models/ProyectoFinal/techo.obj");
+	Model Fachada((char*)"Models/ProyectoFinal/Fachada.obj");
+	Model techo_entrada((char*)"Models/ProyectoFinal/techo_entrada.obj");
+	Model asfalto((char*)"Models/ProyectoFinal/asfalto.obj");
+	Model arbusto1((char*)"Models/ProyectoFinal/arbusto1.obj");
+	
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
@@ -411,155 +394,27 @@ int main()
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		techo.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Piso.Draw(lightingShader);
-		glBindVertexArray(0);
+		techo_entrada.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		objetosE.Draw(lightingShader);
+		Techo.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		trastero.Draw(lightingShader);
+		Fachada.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		cuarto.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-0.547f, 1.810f, 1.354f));
-		model = glm::translate(model, botonPivot);
-
-		model = glm::translate(model, -doorPivot);
-		model = glm::rotate(model, glm::radians(giroboton), glm::vec3(0.0f, 0.0f, 1.0f));
-
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		boton.Draw(lightingShader);
+		asfalto.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		cazo.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		cortina.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1.357f, 1.113f, -0.290));
-		model = glm::translate(model, cucharaPivot);
-		model = glm::rotate(model, glm::radians(cucharaGiro), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, -doorPivot);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		cuchara.Draw(lightingShader);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-4.504f, 0.0f, 1.041f));
-		model = glm::translate(model, doorPivot);
-		model = glm::rotate(model, glm::radians(-doorRotationAngle), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate(model, -doorPivot);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		puertaRefri.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		estufa.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		exterior.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		lamparas.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		objetosE.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		platos.Draw(lightingShader);
-
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		refri.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		refriDentro.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		saleros.Draw(lightingShader);
-
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		silla.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		ventana.Draw(lightingShader);
-
-		model = glm::mat4(1);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glUniform1i(glGetUniformLocation(lightingShader.Program, "activaTransparencia"), 0);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 0.65f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		vasos.Draw(lightingShader);
-		glDisable(GL_BLEND);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
-
-
-
-
-		glm::vec3 cameraFront = camera.GetFront();
-
-
-		float frente = glm::degrees(atan2(cameraFront.z, cameraFront.x));
-
-
-		model = glm::mat4(1.0f);
-
-		if (mano) {
-
-			model = glm::translate(model, glm::vec3(camera.GetPosition().x, camera.GetPosition().y, camera.GetPosition().z));
-
-			model = glm::rotate(model, glm::radians(-frente), glm::vec3(0.0f, 1.0f, 0.0f));
-
-			model = glm::translate(model, glm::vec3(0.6f, -0.3f, 0.3f));
-
-
-		}
-		else {
-
-			model = glm::translate(model, glm::vec3(1.637f, 2.267f, 3.139f));
-		}
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		vaso.Draw(lightingShader);
-
-
+		arbusto1.Draw(lightingShader);
 
 		// Also draw the lamp object, again binding the appropriate shader
 		lampShader.Use();
@@ -577,60 +432,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
 		glBindVertexArray(lightVAO);
-
-
-		Anim.Use();
-		tiempo = glfwGetTime() * 2.8f;
-		glUniform1f(glGetUniformLocation(Anim.Program, "time"), tiempo);
-		modelLoc = glGetUniformLocation(Anim.Program, "model");
-		viewLoc = glGetUniformLocation(Anim.Program, "view");
-		projLoc = glGetUniformLocation(Anim.Program, "projection");
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-
-		model = glm::mat4(1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Sea.Draw(Anim);
 		glBindVertexArray(0);
-
-		Humo.Use();
-		glUniform1i(glGetUniformLocation(Humo.Program, "activaTransparencia"), 0);
-		model = glm::mat4(1);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glUniform4f(glGetUniformLocation(Humo.Program, "colorAlpha"), 0.0392, 0.0275, 0.0, transpHumo);
-
-		tiempo = glfwGetTime() * speedH;
-		modelLoc = glGetUniformLocation(Humo.Program, "model");
-		viewLoc = glGetUniformLocation(Humo.Program, "view");
-		projLoc = glGetUniformLocation(Humo.Program, "projection");
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, posHumo, 0.0f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glUniform1f(glGetUniformLocation(Humo.Program, "time"), tiempo);
-		HumoD.Draw(Humo);
-
-		glDisable(GL_BLEND);
-		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
-		glBindVertexArray(0);
-
-		for (GLuint i = 0; i < 4; i++)
-		{
-			model = glm::mat4(1);
-			model = glm::translate(model, pointLightPositions[i]);
-			model = glm::scale(model, glm::vec3(0.2f));
-			glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-			glDrawArrays(GL_TRIANGLES, 0, 36);
-		}
-		glBindVertexArray(0);
-
-
 		glfwSwapBuffers(window);
 	}
 
