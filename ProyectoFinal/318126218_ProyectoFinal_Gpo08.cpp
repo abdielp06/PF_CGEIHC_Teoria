@@ -142,6 +142,8 @@ int main()
 	Model techo_entrada((char*)"Models/ProyectoFinal/techo_entrada.obj");
 	Model asfalto((char*)"Models/ProyectoFinal/asfalto.obj");
 	Model arbusto1((char*)"Models/ProyectoFinal/arbusto1.obj");
+	Model piso((char*)"Models/ProyectoFinal/piso.obj");
+
 	
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
@@ -415,6 +417,11 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		arbusto1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		piso.Draw(lightingShader);
 
 		// Also draw the lamp object, again binding the appropriate shader
 		lampShader.Use();
