@@ -1,13 +1,18 @@
 ﻿  318126218_ProyectoFinal_Gpo08.cpp
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(303,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(467,15): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(474,15): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(480,15): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(486,15): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(635,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(636,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(640,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(641,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(643,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(644,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-  ProyectoFinal.vcxproj -> C:\Users\roal0\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\Documents\GitHub\PF_CGEIH_Teoria\Debug\ProyectoFinal.exe
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(312,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(534,15): warning C4305: '+=': truncamiento de 'double' a 'float'
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(541,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(547,15): warning C4305: '+=': truncamiento de 'double' a 'float'
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(553,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(733,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(734,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(738,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(739,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(741,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\ProyectoFinal\318126218_ProyectoFinal_Gpo08.cpp(742,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+soil2-debug.lib(etc1_utils.obj) : warning LNK4099: no se encontró PDB '' con 'soil2-debug.lib(etc1_utils.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB '' con 'soil2-debug.lib(image_DXT.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(image_helper.obj) : warning LNK4099: no se encontró PDB '' con 'soil2-debug.lib(image_helper.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: no se encontró PDB '' con 'soil2-debug.lib(SOIL2.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+  ProyectoFinal.vcxproj -> D:\la_ca\Documents\Semestre 9\Compu Grafica v2\Proyecto\Teoria\PF_CGEIH_Teoria\Debug\ProyectoFinal.exe

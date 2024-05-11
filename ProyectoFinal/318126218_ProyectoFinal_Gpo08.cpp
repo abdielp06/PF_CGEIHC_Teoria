@@ -58,6 +58,9 @@ bool animHumo = false;
 bool maxHumo = false;
 float tiempo;
 bool active;
+float pruebax = 0;
+float pruebay = 0;
+float pruebaz = 0;
 
 glm::vec3 doorPivot = glm::vec3(0.0f, 1.0f, 0.0f);
 glm::vec3 cucharaPivot = glm::vec3(0.0f, 0.0f, 1.0f);
@@ -142,6 +145,12 @@ int main()
 	Model techo_entrada((char*)"Models/ProyectoFinal/techo_entrada.obj");
 	Model asfalto((char*)"Models/ProyectoFinal/asfalto.obj");
 	Model arbusto1((char*)"Models/ProyectoFinal/arbusto1.obj");
+	Model fachadaTacos((char*)"Models/facha1/fach1.obj");
+	Model muebles((char*)"Models/MueblesAparte/muebles.obj");
+	Model puerta((char*)"Models/Puerta/marcospuerta1.obj");
+	Model vidrio((char*)"Models/puerta/Vidrio1.obj");
+	Model ventanas((char*)"Models/facha1/ventanas2.obj");
+
 	
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
@@ -416,6 +425,64 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		arbusto1.Draw(lightingShader);
 
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(20.0f, 0.3f, 8.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		fachadaTacos.Draw(lightingShader);
+
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(-.939,-.01,-.49));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		muebles.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(24.04, .28, 13.30));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		puerta.Draw(lightingShader);
+
+		glEnable(GL_BLEND);//Avtiva la funcionalidad para trabajar el canal alfa
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(20.01, .26, 7.97));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, .35f);
+		ventanas.Draw(lightingShader);
+
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(24.04, .28, 13.30));
+		//model = glm::rotate(model, glm::radians(abrirp), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, .35f);
+		vidrio.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(pruebax, .28, pruebaz));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, .35f);
+		vidrio.Draw(lightingShader);
+
+
+
+
+		printf("x%f\n", pruebax);
+		printf("y%f\n", pruebay);
+		printf("z%f\n", pruebaz);
+
+
+
+
+
+		glDisable(GL_BLEND);  //Desactiva el canal alfa 
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+
+
+		glBindVertexArray(0);
+
 		// Also draw the lamp object, again binding the appropriate shader
 		lampShader.Use();
 		// Get location objects for the matrices on the lamp shader (these could be different on a different shader)
@@ -553,6 +620,37 @@ void DoMovement()
 		pointLightPositions[3].y -= 0.1f;
 		pointLightPositions[3].z -= 0.1f;
 	}
+
+	if (keys[GLFW_KEY_Z])
+	{
+		pruebax += 0.01f;
+	}
+
+	if (keys[GLFW_KEY_C])
+	{
+		pruebay += 0.01f;
+	}
+
+	if (keys[GLFW_KEY_B])
+	{
+		pruebaz += 0.01f;
+	}
+
+	if (keys[GLFW_KEY_X])
+	{
+		pruebax -= 0.01f;
+	}
+
+	if (keys[GLFW_KEY_V])
+	{
+		pruebay -= 0.01f;
+	}
+
+	if (keys[GLFW_KEY_N])
+	{
+		pruebaz -= 0.01f;
+	}
+
 }
 
 
