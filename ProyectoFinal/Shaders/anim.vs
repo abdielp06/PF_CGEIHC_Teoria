@@ -3,7 +3,7 @@ layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec3 aNormal;
 layout (location = 2) in vec2 aTexCoords;
 
-const float amplitude = 0.005;
+const float amplitude = 0.01;
 const float frequency = 25.0;
 const float PI = 3.14159;
 out vec2 TexCoords;

@@ -33,7 +33,7 @@ void animacion();
 float doorRotationAngle = 0.0f;
 // Window dimensions
 
-const GLuint WIDTH = 800, HEIGHT = 600;
+const GLuint WIDTH = 1280, HEIGHT = 720;
 int SCREEN_WIDTH, SCREEN_HEIGHT;
 
 // Camera
@@ -212,6 +212,12 @@ int main()
 	Model barandal2((char*)"Models/ProyectoFinal/barandal2.obj");
 	Model barandal3((char*)"Models/ProyectoFinal/barandal3.obj");
 	Model naruto((char*)"Models/ProyectoFinal/naruto.obj");
+	Model locales((char*)"Models/ProyectoFinal/locales.obj");
+	Model Sea((char*)"Models/ProyectoFinal/Sea.obj");
+	Model Sea2((char*)"Models/ProyectoFinal/Sea2.obj");
+	Model fuente1((char*)"Models/ProyectoFinal/fuente1.obj");
+	Model fuente2((char*)"Models/ProyectoFinal/fuente2.obj");
+	Model TTPD((char*)"Models/ProyectoFinal/TTPD.obj");
 
 
 
@@ -476,6 +482,11 @@ int main()
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		TTPD.Draw(lightingShader);
+		
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		techo_entrada.Draw(lightingShader);
 
 		model = glm::mat4(1);
@@ -638,7 +649,22 @@ int main()
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		locales.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		escaleras1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		fuente1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		fuente2.Draw(lightingShader);
 
 		model = glm::mat4(1);
 
@@ -762,6 +788,35 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(AnimGlobo.Program, "time"), tiempo);
 		globo.Draw(AnimGlobo);
+
+		Anim.Use();
+		tiempo = glfwGetTime() * 2.8f;
+		glUniform1f(glGetUniformLocation(Anim.Program, "time"), tiempo);
+		modelLoc = glGetUniformLocation(Anim.Program, "model");
+		viewLoc = glGetUniformLocation(Anim.Program, "view");
+		projLoc = glGetUniformLocation(Anim.Program, "projection");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Sea.Draw(Anim);
+
+		Anim.Use();
+		tiempo = glfwGetTime() * 2.8f;
+		glUniform1f(glGetUniformLocation(Anim.Program, "time"), tiempo);
+		modelLoc = glGetUniformLocation(Anim.Program, "model");
+		viewLoc = glGetUniformLocation(Anim.Program, "view");
+		projLoc = glGetUniformLocation(Anim.Program, "projection");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Sea2.Draw(Anim);
+
 		glBindVertexArray(0);
 
 		// Also draw the lamp object, again binding the appropriate shader
@@ -778,6 +833,8 @@ int main()
 		model = glm::translate(model, lightPos);
 		glBindVertexArray(0);
 		glfwSwapBuffers(window);
+
+
 	}
 
 	glDeleteVertexArrays(1, &VAO);
