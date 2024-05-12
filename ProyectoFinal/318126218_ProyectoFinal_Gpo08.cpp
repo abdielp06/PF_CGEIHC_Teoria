@@ -193,6 +193,11 @@ int main()
 	Model carro4((char*)"Models/ProyectoFinal/carro4.obj");
 	Model carro5((char*)"Models/ProyectoFinal/carro5.obj");
 	Model escaleras1((char*)"Models/ProyectoFinal/escaleras1.obj");
+	Model pokemon((char*)"Models/ProyectoFinal/pokemon.obj");
+	Model sp((char*)"Models/ProyectoFinal/segundopiso1.obj");
+	Model sp2((char*)"Models/ProyectoFinal/segundopiso2.obj");
+	Model barandal1((char*)"Models/ProyectoFinal/barandal1.obj");
+
 
 	
 
@@ -572,6 +577,26 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		piso.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		sp.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		sp2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		barandal1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		pokemon.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
