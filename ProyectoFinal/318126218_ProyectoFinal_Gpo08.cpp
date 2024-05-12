@@ -62,6 +62,23 @@ float pruebax = 0;
 float pruebay = 0;
 float pruebaz = 0;
 
+//auto
+bool compleja = true;
+bool fase1 = true;
+bool fase2 = false;
+bool fase3 = false;
+bool fase4 = false;
+bool fase5 = false;
+
+float trasrot = 0;
+float autocar = 0;
+float avance = 0;
+float avancex = 0;
+float giro = 0;
+float giroComp = 0;
+
+//termina auto
+
 glm::vec3 doorPivot = glm::vec3(0.0f, 1.0f, 0.0f);
 glm::vec3 cucharaPivot = glm::vec3(0.0f, 0.0f, 1.0f);
 glm::vec3 botonPivot = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -139,6 +156,7 @@ int main()
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader Anim("Shaders/anim.vs", "Shaders/anim.frag");
 	Shader Humo("Shaders/animHumo.vs", "Shaders/animHumo.frag");
+	Shader AnimGlobo("Shaders/animGlobo.vs", "Shaders/animGlobo.frag");
 
 	Model Techo((char*)"Models/ProyectoFinal/techo.obj");
 	Model Fachada((char*)"Models/ProyectoFinal/Fachada.obj");
@@ -150,6 +168,9 @@ int main()
 	Model puerta((char*)"Models/Puerta/marcospuerta1.obj");
 	Model vidrio((char*)"Models/puerta/Vidrio1.obj");
 	Model ventanas((char*)"Models/facha1/ventanas2.obj");
+	Model globo((char*)"Models/globo/globo.obj");
+	Model porshe((char*)"Models/pruebauto/porshe2.obj");
+	Model llanta((char*)"Models/pruebauto/llanta2.obj");
 
 	
 
@@ -443,6 +464,54 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		puerta.Draw(lightingShader);
 
+
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(-23.85, .35, 9));
+		model = glm::translate(model, glm::vec3(avancex, 0, avance));
+		model = glm::scale(model, glm::vec3(2, 2, 2));
+		model = glm::rotate(model, glm::radians(giroComp), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(abest), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porshe.Draw(lightingShader);
+
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(-23.85, .35, 9));
+		model = glm::translate(model, glm::vec3(avancex, 0, avance));
+		model = glm::rotate(model, glm::radians(giroComp), glm::vec3(0.0f, 1.0f, 0.0f));
+
+
+		glm::mat4 wheelModel = glm::translate(model, glm::vec3(.91 - .89, .29 - .35, -45.85 + 45.87));
+		wheelModel = glm::rotate(wheelModel, glm::radians(giro), glm::vec3(0.0f, 1.0f, 0.0f));
+		wheelModel = glm::rotate(wheelModel, glm::radians(trasrot), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::translate(model, glm::vec3(pruebax, .35, pruebaz));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheelModel));
+		llanta.Draw(lightingShader); //lanta 1
+
+		glm::mat4 wheelModel2 = glm::translate(model, glm::vec3(-.26 - .89, .29 - .35, -45.85 + 45.87));
+		wheelModel2 = glm::rotate(wheelModel2, glm::radians(giro), glm::vec3(0.0f, 1.0f, 0.0f));
+		wheelModel2 = glm::rotate(wheelModel2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		wheelModel2 = glm::rotate(wheelModel2, glm::radians(trasrot), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheelModel2));
+		llanta.Draw(lightingShader); //llanta 2
+
+
+		// Llanta 3
+		glm::mat4 wheelModel3 = glm::translate(model, glm::vec3(.91 - .89, .29 - .35, -47.68 + 45.87));
+		wheelModel3 = glm::rotate(wheelModel3, glm::radians(trasrot), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheelModel3));
+		llanta.Draw(lightingShader); //llanta 3
+
+		// Llanta 4
+		glm::mat4 wheelModel4 = glm::translate(model, glm::vec3(-.26 - .89, .29 - .35, -47.68 + 45.87));
+		wheelModel4 = glm::rotate(wheelModel4, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		wheelModel4 = glm::rotate(wheelModel4, glm::radians(trasrot), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheelModel4));
+		llanta.Draw(lightingShader); //llanta 4
+
+
 		glEnable(GL_BLEND);//Avtiva la funcionalidad para trabajar el canal alfa
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		model = glm::mat4(1);
@@ -461,7 +530,7 @@ int main()
 		vidrio.Draw(lightingShader);
 
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(pruebax, .28, pruebaz));
+		model = glm::translate(model, glm::vec3(24.52, .3, 5.76));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, .35f);
 		vidrio.Draw(lightingShader);
@@ -469,9 +538,9 @@ int main()
 
 
 
-		printf("x%f\n", pruebax);
-		printf("y%f\n", pruebay);
-		printf("z%f\n", pruebaz);
+		//printf("x%f\n", pruebax);
+		//printf("y%f\n", pruebay);
+		//printf("z%f\n", pruebaz);
 
 
 
@@ -481,6 +550,26 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 
 
+		glBindVertexArray(0);
+
+
+		AnimGlobo.Use();
+
+		tiempo = glfwGetTime() * 0.2f;
+		// Get location objects for the matrices on the lamp shader (these could be different on a different shader)
+		modelLoc = glGetUniformLocation(AnimGlobo.Program, "model");
+		viewLoc = glGetUniformLocation(AnimGlobo.Program, "view");
+		projLoc = glGetUniformLocation(AnimGlobo.Program, "projection");
+		// Set matrices
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(23.82,3.53, 10.30));
+		model = glm::scale(model, glm::vec3(.5, .5, .5));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(AnimGlobo.Program, "time"), tiempo);
+		globo.Draw(AnimGlobo);
 		glBindVertexArray(0);
 
 		// Also draw the lamp object, again binding the appropriate shader
@@ -650,6 +739,69 @@ void DoMovement()
 	{
 		pruebaz -= 0.01f;
 	}
+
+	if (compleja) {
+
+		trasrot += 4.0f;
+		if (fase1) {
+			avance = avance + .03;
+			if (avance >= 9) {
+				fase1 = false;
+				fase2 = true;
+			}
+		}
+		if (fase2) {
+
+			avance = avance + .01;
+			avancex = avancex + .01;
+			giro += 0.5f;
+			giroComp = giroComp + 1;
+			if (giro >= 23) {
+				fase2 = false;
+				fase3 = true;
+			}
+
+		}
+
+		if (fase3) {
+			giroComp = giroComp + 1;
+			avance = avance + .01;
+			avancex = avancex + .01;
+			if (giroComp >= 90) {
+				fase3 = false;
+				fase4 = true;
+			}
+
+
+		}
+
+
+		if (fase4) {
+			giro -= 0.5f;
+			avancex = avancex + .01;
+
+			if (giro <= 0) {
+				fase4 = false;
+				fase5 = true;
+			}
+
+		}
+
+		if (fase5) {
+			avancex = avancex + .02;
+
+			if (avancex >= 16) {
+				fase5 = false;
+				compleja = false;
+			}
+
+		}
+
+
+
+
+	}
+
 
 }
 

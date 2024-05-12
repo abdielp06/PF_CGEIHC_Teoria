@@ -24,6 +24,8 @@
   <ItemGroup>
     <None Include="Shaders\anim.frag" />
     <None Include="Shaders\anim.vs" />
+    <None Include="Shaders\animGlobo.frag" />
+    <None Include="Shaders\animGlobo.vs" />
     <None Include="Shaders\animHumo.frag" />
     <None Include="Shaders\animHumo.vs" />
     <None Include="Shaders\lamp.frag" />
