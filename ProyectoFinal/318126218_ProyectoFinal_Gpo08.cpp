@@ -164,6 +164,7 @@ int main()
 	Model Fachada((char*)"Models/ProyectoFinal/Fachada.obj");
 	Model techo_entrada((char*)"Models/ProyectoFinal/techo_entrada.obj");
 	Model asfalto((char*)"Models/ProyectoFinal/asfalto.obj");
+	Model asfalto2((char*)"Models/ProyectoFinal/asfalto2.obj");
 	Model arbusto1((char*)"Models/ProyectoFinal/arbusto1.obj");
 	Model arbusto2((char*)"Models/ProyectoFinal/arbusto2.obj");
 	Model arbusto3((char*)"Models/ProyectoFinal/arbusto3.obj");
@@ -187,6 +188,11 @@ int main()
 	Model lamparas7((char*)"Models/ProyectoFinal/lamparas7.obj");
 	Model lamparas8((char*)"Models/ProyectoFinal/lamparas8.obj");
 	Model carro1((char*)"Models/ProyectoFinal/carro1.obj");
+	Model carro2((char*)"Models/ProyectoFinal/carro2.obj");
+	Model carro3((char*)"Models/ProyectoFinal/carro3.obj");
+	Model carro4((char*)"Models/ProyectoFinal/carro4.obj");
+	Model carro5((char*)"Models/ProyectoFinal/carro5.obj");
+	Model escaleras1((char*)"Models/ProyectoFinal/escaleras1.obj");
 
 	
 
@@ -456,6 +462,11 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		asfalto.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		asfalto2.Draw(lightingShader);
 		
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
@@ -540,7 +551,32 @@ int main()
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro4.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro5.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		piso.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		escaleras1.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(20.0f, 0.3f, 8.0f));
