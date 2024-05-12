@@ -186,6 +186,7 @@ int main()
 	Model lamparas6((char*)"Models/ProyectoFinal/lamparas6.obj");
 	Model lamparas7((char*)"Models/ProyectoFinal/lamparas7.obj");
 	Model lamparas8((char*)"Models/ProyectoFinal/lamparas8.obj");
+	Model carro1((char*)"Models/ProyectoFinal/carro1.obj");
 
 	
 
@@ -530,6 +531,11 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		arbusto6.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro1.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
