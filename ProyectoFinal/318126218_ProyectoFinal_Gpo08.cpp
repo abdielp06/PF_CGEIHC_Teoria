@@ -233,6 +233,7 @@ int main()
 	Model pokemon_logo((char*)"Models/ProyectoFinal/pokemon_logo.obj");
 	Model totalplay((char*)"Models/ProyectoFinal/totalplay.obj");
 	Model sears((char*)"Models/ProyectoFinal/sears.obj");
+	Model tangamanga((char*)"Models/ProyectoFinal/tangamanga.obj");
 
 
 
@@ -524,6 +525,11 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		sears.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		tangamanga.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
