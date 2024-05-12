@@ -159,10 +159,17 @@ int main()
 	Shader AnimGlobo("Shaders/animGlobo.vs", "Shaders/animGlobo.frag");
 
 	Model Techo((char*)"Models/ProyectoFinal/techo.obj");
+	Model piso((char*)"Models/ProyectoFinal/piso.obj");
+	Model banqueta((char*)"Models/ProyectoFinal/banqueta.obj");
 	Model Fachada((char*)"Models/ProyectoFinal/Fachada.obj");
 	Model techo_entrada((char*)"Models/ProyectoFinal/techo_entrada.obj");
 	Model asfalto((char*)"Models/ProyectoFinal/asfalto.obj");
 	Model arbusto1((char*)"Models/ProyectoFinal/arbusto1.obj");
+	Model arbusto2((char*)"Models/ProyectoFinal/arbusto2.obj");
+	Model arbusto3((char*)"Models/ProyectoFinal/arbusto3.obj");
+	Model arbusto4((char*)"Models/ProyectoFinal/arbusto4.obj");
+	Model arbusto5((char*)"Models/ProyectoFinal/arbusto5.obj");
+	Model arbusto6((char*)"Models/ProyectoFinal/arbusto6.obj");
 	Model fachadaTacos((char*)"Models/facha1/fach1.obj");
 	Model muebles((char*)"Models/MueblesAparte/muebles.obj");
 	Model puerta((char*)"Models/Puerta/marcospuerta1.obj");
@@ -171,6 +178,15 @@ int main()
 	Model globo((char*)"Models/globo/globo.obj");
 	Model porshe((char*)"Models/pruebauto/porshe2.obj");
 	Model llanta((char*)"Models/pruebauto/llanta2.obj");
+	Model lamparas1((char*)"Models/ProyectoFinal/lamparas1.obj");
+	Model lamparas2((char*)"Models/ProyectoFinal/lamparas2.obj");
+	Model lamparas3((char*)"Models/ProyectoFinal/lamparas3.obj");
+	Model lamparas4((char*)"Models/ProyectoFinal/lamparas4.obj");
+	Model lamparas5((char*)"Models/ProyectoFinal/lamparas5.obj");
+	Model lamparas6((char*)"Models/ProyectoFinal/lamparas6.obj");
+	Model lamparas7((char*)"Models/ProyectoFinal/lamparas7.obj");
+	Model lamparas8((char*)"Models/ProyectoFinal/lamparas8.obj");
+	Model carro1((char*)"Models/ProyectoFinal/carro1.obj");
 
 	
 
@@ -440,12 +456,91 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		asfalto.Draw(lightingShader);
+		
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		banqueta.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas4.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas5.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas6.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas7.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lamparas8.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		arbusto1.Draw(lightingShader);
 
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		arbusto2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		arbusto3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		arbusto4.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		arbusto5.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		arbusto6.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		carro1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		piso.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(20.0f, 0.3f, 8.0f));
