@@ -200,8 +200,7 @@ int main()
 	Model lamparas7((char*)"Models/ProyectoFinal/lamparas7.obj");
 	Model lamparas8((char*)"Models/ProyectoFinal/lamparas8.obj");
 	Model carro1((char*)"Models/ProyectoFinal/carro1.obj");
-<<<<<<< Updated upstream
-=======
+
 	Model carro2((char*)"Models/ProyectoFinal/carro2.obj");
 	Model carro3((char*)"Models/ProyectoFinal/carro3.obj");
 	Model carro4((char*)"Models/ProyectoFinal/carro4.obj");
@@ -215,7 +214,7 @@ int main()
 	Model barandal3((char*)"Models/ProyectoFinal/barandal3.obj");
 	Model naruto((char*)"Models/ProyectoFinal/naruto.obj");
 
->>>>>>> Stashed changes
+
 
 	
 
@@ -581,8 +580,7 @@ int main()
 		piso.Draw(lightingShader);
 
 		model = glm::mat4(1);
-<<<<<<< Updated upstream
-=======
+
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		sp.Draw(lightingShader);
@@ -623,7 +621,7 @@ int main()
 		escaleras1.Draw(lightingShader);
 
 		model = glm::mat4(1);
->>>>>>> Stashed changes
+
 		model = glm::translate(model, glm::vec3(20.0f, 0.3f, 8.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
