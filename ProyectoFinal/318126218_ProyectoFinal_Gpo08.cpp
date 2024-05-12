@@ -228,8 +228,11 @@ int main()
 	Model panini((char*)"Models/ProyectoFinal/panini.obj");
 	Model fortnite((char*)"Models/ProyectoFinal/fortnite.obj");
 	Model PH((char*)"Models/ProyectoFinal/PH.obj");
-	Model LNE((char*)"Models/ProyectoFinal/LNE.obj");
+	Model banamex((char*)"Models/ProyectoFinal/banamex.obj");
 	Model Pantalla((char*)"Models/ProyectoFinal/pantallaDescompuesta.obj");
+	Model pokemon_logo((char*)"Models/ProyectoFinal/pokemon_logo.obj");
+	Model totalplay((char*)"Models/ProyectoFinal/totalplay.obj");
+	Model sears((char*)"Models/ProyectoFinal/sears.obj");
 
 
 
@@ -505,7 +508,22 @@ int main()
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		LNE.Draw(lightingShader);
+		banamex.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		pokemon_logo.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		totalplay.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		sears.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
