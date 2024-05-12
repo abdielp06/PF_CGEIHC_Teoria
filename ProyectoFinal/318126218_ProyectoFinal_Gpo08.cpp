@@ -44,6 +44,7 @@ GLfloat rotationAngle = 0.0f;
 GLfloat transpHumo = 0.0f;
 GLfloat posHumo = 0.0f;
 GLfloat humoSpeedPos = 0.5f;
+GLfloat aumentoPantalla = 0.0f;
 
 float speedH = 2.4f;
 bool keys[1024];
@@ -61,6 +62,11 @@ bool active;
 float pruebax = 0;
 float pruebay = 0;
 float pruebaz = 0;
+bool animPantalla = false;
+
+float tiempoP;
+float speed = 0.0f;
+
 
 
 //luz tacos
@@ -170,6 +176,7 @@ int main()
 	Shader Anim("Shaders/anim.vs", "Shaders/anim.frag");
 	Shader Humo("Shaders/animHumo.vs", "Shaders/animHumo.frag");
 	Shader AnimGlobo("Shaders/animGlobo.vs", "Shaders/animGlobo.frag");
+	Shader Estatica("Shaders/animPantalla.vs", "Shaders/animPantalla.frag");
 
 	Model Techo((char*)"Models/ProyectoFinal/techo.obj");
 	Model piso((char*)"Models/ProyectoFinal/piso.obj");
@@ -218,10 +225,16 @@ int main()
 	Model fuente1((char*)"Models/ProyectoFinal/fuente1.obj");
 	Model fuente2((char*)"Models/ProyectoFinal/fuente2.obj");
 	Model TTPD((char*)"Models/ProyectoFinal/TTPD.obj");
+	Model panini((char*)"Models/ProyectoFinal/panini.obj");
+	Model fortnite((char*)"Models/ProyectoFinal/fortnite.obj");
+	Model PH((char*)"Models/ProyectoFinal/PH.obj");
+	Model LNE((char*)"Models/ProyectoFinal/LNE.obj");
+	Model Pantalla((char*)"Models/ProyectoFinal/pantallaDescompuesta.obj");
 
 
 
-	
+
+
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
@@ -411,7 +424,7 @@ int main()
 		lightColor.y = (Light1.y);
 		lightColor.z = (Light1.z);
 
-		
+
 
 		// Point light 1
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[0].position"), 22.87, 5.34, 13.57);
@@ -483,7 +496,27 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		TTPD.Draw(lightingShader);
-		
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		panini.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		LNE.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		PH.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		fortnite.Draw(lightingShader);
+
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -503,7 +536,7 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		asfalto.Draw(lightingShader);
-		
+
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -675,7 +708,7 @@ int main()
 
 
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-.939,-.01,-.49));
+		model = glm::translate(model, glm::vec3(-.939, -.01, -.49));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		muebles.Draw(lightingShader);
 
@@ -783,7 +816,7 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(23.82,3.53, 10.30));
+		model = glm::translate(model, glm::vec3(23.82, 3.53, 10.30));
 		model = glm::scale(model, glm::vec3(.5, .5, .5));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(AnimGlobo.Program, "time"), tiempo);
@@ -817,6 +850,22 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Sea2.Draw(Anim);
 
+		glBindVertexArray(0);
+
+		Estatica.Use();
+		tiempoP = glfwGetTime() * speed;
+		modelLoc = glGetUniformLocation(Estatica.Program, "model");
+		viewLoc = glGetUniformLocation(Estatica.Program, "view");
+		projLoc = glGetUniformLocation(Estatica.Program, "projection");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, (aumentoPantalla)));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(Estatica.Program, "time"), tiempoP);
+		Pantalla.Draw(Estatica);
 		glBindVertexArray(0);
 
 		// Also draw the lamp object, again binding the appropriate shader
@@ -862,6 +911,15 @@ void DoMovement()
 				maxHumo = false;
 			}
 		}
+	}
+	if (animPantalla)
+	{
+		aumentoPantalla = 0.025f;
+		speed = 30.4f;
+	}
+	else
+	{
+		aumentoPantalla = 0.0f;
 	}
 	if (keys[GLFW_KEY_1])
 	{
@@ -1010,7 +1068,7 @@ void DoMovement()
 			if (direccion) {
 				luz1f = luz1f + .05;
 				Light1 = glm::vec3(1.0f, 0.0f, 1.0f) * luz1f;
-				
+
 			}
 			if (luz1f >= 5) {
 				direccion = false;
@@ -1069,9 +1127,6 @@ void animacion()
 		if (doorRotationAngle >= 0.0f)
 			doorRotationAngle -= doorRotationSpeed * deltaTime;
 	}
-	if (keys[GLFW_KEY_P]) {
-		cucharaGiro += doorRotationSpeed * deltaTime;
-	}
 
 	if (keys[GLFW_KEY_M]) {
 
@@ -1082,16 +1137,6 @@ void animacion()
 
 		if (giroboton >= 0.0f)
 			giroboton -= doorRotationSpeed * deltaTime;
-	}
-	if (keys[GLFW_KEY_P])
-	{
-		if (maxHumo == false) {
-			animHumo = true;
-			transpHumo = 0.30f;
-			posHumo = 0.0f;
-			maxHumo = true;
-		}
-
 	}
 }
 
@@ -1132,6 +1177,10 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	{
 		luzPoste = !luzPoste;
 
+	}
+	if (keys[GLFW_KEY_P])
+	{
+		animPantalla = !animPantalla;
 	}
 }
 
