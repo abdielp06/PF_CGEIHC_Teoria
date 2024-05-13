@@ -242,6 +242,8 @@ int main()
 	Model bancos2((char*)"Models/ProyectoFinal/bancos2.obj");
 	Model bancos3((char*)"Models/ProyectoFinal/bancos3.obj");
 	Model bancos4((char*)"Models/ProyectoFinal/bancos4.obj");
+	Model bdb1((char*)"Models/ProyectoFinal/botebasura1.obj");
+	Model bdb2((char*)"Models/ProyectoFinal/botebasura2.obj");
 
 	GLfloat skyboxVertices[] = {
 		// Positions
@@ -808,6 +810,15 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		puerta.Draw(lightingShader);
 
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(24.04, .28, 13.30));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bdb1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(24.04, .28, 13.30));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bdb2.Draw(lightingShader);
 
 
 		model = glm::mat4(1);
