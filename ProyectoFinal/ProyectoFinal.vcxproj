@@ -23,6 +23,7 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="Shaders\anim.frag" />
     <None Include="Shaders\anim.vs" />
     <None Include="Shaders\animGlobo.frag" />
