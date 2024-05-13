@@ -96,6 +96,21 @@ float giroComp = 0;
 
 //termina auto
 
+// Animacion Porygon
+float	movPory_x = 0.0f,
+		movPory_y = 0.0f,
+		movPory_z = 0.0f,
+		orienta_Pory = 0.0f,
+		rotColaP = 0.0f,
+		rotPataDerP = 0.0f,
+		rotPataIzqP = 0.0f,
+		varPory = 0.0f;
+
+bool	animPory = false;
+int		rutaPory = 0,
+		spritePory = 1;
+
+
 glm::vec3 doorPivot = glm::vec3(0.0f, 1.0f, 0.0f);
 glm::vec3 cucharaPivot = glm::vec3(0.0f, 0.0f, 1.0f);
 glm::vec3 botonPivot = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -225,6 +240,7 @@ int main()
 	Model fuente1((char*)"Models/ProyectoFinal/fuente1.obj");
 	Model fuente2((char*)"Models/ProyectoFinal/fuente2.obj");
 	Model TTPD((char*)"Models/ProyectoFinal/TTPD.obj");
+<<<<<<< Updated upstream
 	Model panini((char*)"Models/ProyectoFinal/panini.obj");
 	Model fortnite((char*)"Models/ProyectoFinal/fortnite.obj");
 	Model PH((char*)"Models/ProyectoFinal/PH.obj");
@@ -242,6 +258,13 @@ int main()
 	Model bancos4((char*)"Models/ProyectoFinal/bancos4.obj");
 
 
+=======
+	Model porygonCabeza((char*)"Models/Porygon/PorygonCabeza.obj");
+	Model porygonCuerpo((char*)"Models/Porygon/PorygonCuerpo.obj");
+	Model porygonCola((char*)"Models/Porygon/PorygonCola.obj");
+	Model porygonPataDer((char*)"Models/Porygon/PorygonPataDer.obj");
+	Model porygonPataIzq((char*)"Models/Porygon/PorygonPataIzq.obj");
+>>>>>>> Stashed changes
 
 
 
@@ -501,6 +524,7 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
 		glm::mat4 model(1);
+		glm::mat4 tmp = glm::mat4(1);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
@@ -778,6 +802,35 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		puerta.Draw(lightingShader);
 
+		// Porygon
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(movPory_x - 0.205, movPory_y + 9.201, movPory_z - 0.076));
+		tmp = model = glm::rotate(model, glm::radians(orienta_Pory), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porygonCuerpo.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(tmp, glm::vec3(0.0, 1.064, 0.539));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porygonCabeza.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(tmp, glm::vec3(0.0, -0.421, -0.627));
+		model = glm::rotate(model, glm::radians(rotColaP), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porygonCola.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(tmp, glm::vec3(-0.88, -0.415, -0.025));
+		model = glm::rotate(model, glm::radians(rotPataDerP), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porygonPataDer.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		model = glm::translate(tmp, glm::vec3(0.894, -0.395, -0.029));
+		model = glm::rotate(model, glm::radians(rotPataIzqP), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		porygonPataIzq.Draw(lightingShader);
 
 
 		model = glm::mat4(1);
