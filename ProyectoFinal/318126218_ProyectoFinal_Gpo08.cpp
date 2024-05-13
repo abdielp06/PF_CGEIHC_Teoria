@@ -256,6 +256,19 @@ int main()
 	Model bancos2((char*)"Models/ProyectoFinal/bancos2.obj");
 	Model bancos3((char*)"Models/ProyectoFinal/bancos3.obj");
 	Model bancos4((char*)"Models/ProyectoFinal/bancos4.obj");
+	Model baños((char*)"Models/ProyectoFinal/baños.obj");
+	Model EE1((char*)"Models/ProyectoFinal/EE1.obj");
+	Model EE2((char*)"Models/ProyectoFinal/EE2.obj");
+	Model EE3((char*)"Models/ProyectoFinal/EE3.obj");
+	Model EE4((char*)"Models/ProyectoFinal/EE4.obj");
+	Model papitas1((char*)"Models/ProyectoFinal/papitas1.obj");
+	Model papitas2((char*)"Models/ProyectoFinal/papitas2.obj");
+	Model papitas3((char*)"Models/ProyectoFinal/papitas3.obj");
+	Model papitas4((char*)"Models/ProyectoFinal/papitas4.obj");
+	Model bdb1((char*)"Models/ProyectoFinal/botebasura1.obj");
+	Model bdb2((char*)"Models/ProyectoFinal/botebasura2.obj");
+	Model gasolinera((char*)"Models/ProyectoFinal/gasolinera.obj");
+	
 
 
 
@@ -540,6 +553,66 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		banamex.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		EE1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		EE2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		EE3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		EE4.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bdb1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bdb2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		papitas1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		papitas2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		papitas3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		papitas4.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		baños.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		gasolinera.Draw(lightingShader);
 
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
