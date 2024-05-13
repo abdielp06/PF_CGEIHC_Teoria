@@ -21,6 +21,9 @@
     <ClInclude Include="Model.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\anim.frag">
@@ -65,6 +68,8 @@
     <None Include="Shaders\animHumo.vs">
       <Filter>Archivos de origen</Filter>
     </None>
+    <None Include="Shaders\animGlobo.frag" />
+    <None Include="Shaders\animGlobo.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="318126218_ProyectoFinal_Gpo08.cpp">

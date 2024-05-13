@@ -24,6 +24,7 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
+#include "Texture.h"
 
 // Function prototypes
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -44,6 +45,7 @@ GLfloat rotationAngle = 0.0f;
 GLfloat transpHumo = 0.0f;
 GLfloat posHumo = 0.0f;
 GLfloat humoSpeedPos = 0.5f;
+GLfloat aumentoPantalla = 0.0f;
 
 float speedH = 2.4f;
 bool keys[1024];
@@ -61,6 +63,11 @@ bool active;
 float pruebax = 0;
 float pruebay = 0;
 float pruebaz = 0;
+bool animPantalla = false;
+
+float tiempoP;
+float speed = 0.0f;
+
 
 
 //luz tacos
@@ -168,8 +175,10 @@ int main()
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader Anim("Shaders/anim.vs", "Shaders/anim.frag");
+	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 	Shader Humo("Shaders/animHumo.vs", "Shaders/animHumo.frag");
 	Shader AnimGlobo("Shaders/animGlobo.vs", "Shaders/animGlobo.frag");
+	Shader Estatica("Shaders/animPantalla.vs", "Shaders/animPantalla.frag");
 
 	Model Techo((char*)"Models/ProyectoFinal/techo.obj");
 	Model piso((char*)"Models/ProyectoFinal/piso.obj");
@@ -218,10 +227,69 @@ int main()
 	Model fuente1((char*)"Models/ProyectoFinal/fuente1.obj");
 	Model fuente2((char*)"Models/ProyectoFinal/fuente2.obj");
 	Model TTPD((char*)"Models/ProyectoFinal/TTPD.obj");
+	Model panini((char*)"Models/ProyectoFinal/panini.obj");
+	Model fortnite((char*)"Models/ProyectoFinal/fortnite.obj");
+	Model PH((char*)"Models/ProyectoFinal/PH.obj");
+	Model banamex((char*)"Models/ProyectoFinal/banamex.obj");
+	Model Pantalla((char*)"Models/ProyectoFinal/pantallaDescompuesta.obj");
+	Model pokemon_logo((char*)"Models/ProyectoFinal/pokemon_logo.obj");
+	Model totalplay((char*)"Models/ProyectoFinal/totalplay.obj");
+	Model sears((char*)"Models/ProyectoFinal/sears.obj");
+	Model tangamanga((char*)"Models/ProyectoFinal/tangamanga.obj");
+	Model disney((char*)"Models/ProyectoFinal/disney.obj");
+	Model max((char*)"Models/ProyectoFinal/max.obj");
+	Model bancos1((char*)"Models/ProyectoFinal/bancos1.obj");
+	Model bancos2((char*)"Models/ProyectoFinal/bancos2.obj");
+	Model bancos3((char*)"Models/ProyectoFinal/bancos3.obj");
+	Model bancos4((char*)"Models/ProyectoFinal/bancos4.obj");
+
+	GLfloat skyboxVertices[] = {
+		// Positions
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		-1.0f,  1.0f, -1.0f,
+		1.0f,  1.0f, -1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		1.0f, -1.0f,  1.0f
+	};
 
 
 
-	
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
@@ -297,7 +365,6 @@ int main()
 		glm::vec3(-1.3f,  1.0f, -1.5f)
 	};
 
-	// First, set the container's VAO (and VBO)
 	GLuint VBO, VAO, EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -313,11 +380,9 @@ int main()
 	// Position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
-
 	// Normals attribute
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
-
 	// Texture Coordinate attribute
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(2);
@@ -327,54 +392,42 @@ int main()
 	GLuint lightVAO;
 	glGenVertexArrays(1, &lightVAO);
 	glBindVertexArray(lightVAO);
-
 	// We only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need.
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
 	// Set the vertex attributes (only position data for the lamp))
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0); // Note that we skip over the other data in our buffer object (we don't need the normals/textures, only positions).
 	glEnableVertexAttribArray(0);
 	glBindVertexArray(0);
 
-	// Load textures
-	GLuint texture1, texture2;
-	glGenTextures(1, &texture1);
-	glGenTextures(1, &texture2);
-
-	int textureWidth, textureHeight, nrChannels;
-	stbi_set_flip_vertically_on_load(true);
-	unsigned char* image;
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-
-	// Diffuse map
-	image = stbi_load("images/TexturesCom_GravelCobble0019_7_S.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
-	glBindTexture(GL_TEXTURE_2D, texture1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	if (image)
-	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-		glGenerateMipmap(GL_TEXTURE_2D);
-	}
-
-	else
-	{
-		std::cout << "Failed to load texture" << std::endl;
-	}
-
-	stbi_image_free(image);
-
-
 	// Set texture units
 	lightingShader.Use();
 	glUniform1i(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0);
-	glUniform1i(glGetUniformLocation(lightingShader.Program, "material.specular"), 1);
+	//glUniform1i(glGetUniformLocation(lightingShader.Program, "material.specular"), 1);
+
+	//SkyBox
+	GLuint skyboxVBO, skyboxVAO;
+	glGenVertexArrays(1, &skyboxVAO);
+	glGenBuffers(1, &skyboxVBO);
+	glBindVertexArray(skyboxVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+
+
+	vector<const GLchar*> faces;
+	faces.push_back("SkyBox/2left.tga");
+	faces.push_back("SkyBox/2right.tga");
+
+	faces.push_back("SkyBox/2top.tga");
+	faces.push_back("SkyBox/2bottom.tga");
+	faces.push_back("SkyBox/2back.tga");
+	faces.push_back("SkyBox/2front.tga");
+
+	GLuint cubemapTexture = TextureLoading::LoadCubemap(faces);
 
 	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 1000.0f);
-	lightingShader.Use();
+	//lightingShader.Use();
 	glUniform1i(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0);
 	// Game loop
 	while (!glfwWindowShouldClose(window))
@@ -411,7 +464,7 @@ int main()
 		lightColor.y = (Light1.y);
 		lightColor.z = (Light1.z);
 
-		
+
 
 		// Point light 1
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[0].position"), 22.87, 5.34, 13.57);
@@ -483,7 +536,78 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		TTPD.Draw(lightingShader);
-		
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		panini.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		banamex.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		pokemon_logo.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		totalplay.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		max.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		disney.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		sears.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		tangamanga.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		PH.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		fortnite.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bancos1.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bancos2.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bancos3.Draw(lightingShader);
+
+		model = glm::mat4(1);
+		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		bancos4.Draw(lightingShader);
+
+
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -503,7 +627,7 @@ int main()
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		asfalto.Draw(lightingShader);
-		
+
 		model = glm::mat4(1);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0f, 1.0f, 1.0f, 1.0f);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -675,7 +799,7 @@ int main()
 
 
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-.939,-.01,-.49));
+		model = glm::translate(model, glm::vec3(-.939, -.01, -.49));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		muebles.Draw(lightingShader);
 
@@ -783,7 +907,7 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(23.82,3.53, 10.30));
+		model = glm::translate(model, glm::vec3(23.82, 3.53, 10.30));
 		model = glm::scale(model, glm::vec3(.5, .5, .5));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(AnimGlobo.Program, "time"), tiempo);
@@ -819,6 +943,22 @@ int main()
 
 		glBindVertexArray(0);
 
+		Estatica.Use();
+		tiempoP = glfwGetTime() * speed;
+		modelLoc = glGetUniformLocation(Estatica.Program, "model");
+		viewLoc = glGetUniformLocation(Estatica.Program, "view");
+		projLoc = glGetUniformLocation(Estatica.Program, "projection");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, (aumentoPantalla)));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(Estatica.Program, "time"), tiempoP);
+		Pantalla.Draw(Estatica);
+		glBindVertexArray(0);
+
 		// Also draw the lamp object, again binding the appropriate shader
 		lampShader.Use();
 		// Get location objects for the matrices on the lamp shader (these could be different on a different shader)
@@ -832,7 +972,26 @@ int main()
 		model = glm::mat4(1);
 		model = glm::translate(model, lightPos);
 		glBindVertexArray(0);
+
+
+		// Draw skybox as last
+		glDepthFunc(GL_LEQUAL);  // Change depth function so depth test passes when values are equal to depth buffer's content
+		SkyBoxshader.Use();
+		view = glm::mat4(glm::mat3(camera.GetViewMatrix()));	// Remove any translation component of the view matrix
+		glUniformMatrix4fv(glGetUniformLocation(SkyBoxshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(glGetUniformLocation(SkyBoxshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+		// skybox cube
+		glBindVertexArray(skyboxVAO);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+		glDepthFunc(GL_LESS); // Set depth function back to default
 		glfwSwapBuffers(window);
+
+
+
 
 
 	}
@@ -862,6 +1021,15 @@ void DoMovement()
 				maxHumo = false;
 			}
 		}
+	}
+	if (animPantalla)
+	{
+		aumentoPantalla = 0.025f;
+		speed = 30.4f;
+	}
+	else
+	{
+		aumentoPantalla = 0.0f;
 	}
 	if (keys[GLFW_KEY_1])
 	{
@@ -1010,7 +1178,7 @@ void DoMovement()
 			if (direccion) {
 				luz1f = luz1f + .05;
 				Light1 = glm::vec3(1.0f, 0.0f, 1.0f) * luz1f;
-				
+
 			}
 			if (luz1f >= 5) {
 				direccion = false;
@@ -1069,9 +1237,6 @@ void animacion()
 		if (doorRotationAngle >= 0.0f)
 			doorRotationAngle -= doorRotationSpeed * deltaTime;
 	}
-	if (keys[GLFW_KEY_P]) {
-		cucharaGiro += doorRotationSpeed * deltaTime;
-	}
 
 	if (keys[GLFW_KEY_M]) {
 
@@ -1082,16 +1247,6 @@ void animacion()
 
 		if (giroboton >= 0.0f)
 			giroboton -= doorRotationSpeed * deltaTime;
-	}
-	if (keys[GLFW_KEY_P])
-	{
-		if (maxHumo == false) {
-			animHumo = true;
-			transpHumo = 0.30f;
-			posHumo = 0.0f;
-			maxHumo = true;
-		}
-
 	}
 }
 
@@ -1132,6 +1287,10 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	{
 		luzPoste = !luzPoste;
 
+	}
+	if (keys[GLFW_KEY_P])
+	{
+		animPantalla = !animPantalla;
 	}
 }
 
