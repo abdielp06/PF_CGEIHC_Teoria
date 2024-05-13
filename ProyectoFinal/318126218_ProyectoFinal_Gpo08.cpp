@@ -240,7 +240,7 @@ int main()
 	Model fuente1((char*)"Models/ProyectoFinal/fuente1.obj");
 	Model fuente2((char*)"Models/ProyectoFinal/fuente2.obj");
 	Model TTPD((char*)"Models/ProyectoFinal/TTPD.obj");
-<<<<<<< Updated upstream
+
 	Model panini((char*)"Models/ProyectoFinal/panini.obj");
 	Model fortnite((char*)"Models/ProyectoFinal/fortnite.obj");
 	Model PH((char*)"Models/ProyectoFinal/PH.obj");
@@ -258,13 +258,13 @@ int main()
 	Model bancos4((char*)"Models/ProyectoFinal/bancos4.obj");
 
 
-=======
+
 	Model porygonCabeza((char*)"Models/Porygon/PorygonCabeza.obj");
 	Model porygonCuerpo((char*)"Models/Porygon/PorygonCuerpo.obj");
 	Model porygonCola((char*)"Models/Porygon/PorygonCola.obj");
 	Model porygonPataDer((char*)"Models/Porygon/PorygonPataDer.obj");
 	Model porygonPataIzq((char*)"Models/Porygon/PorygonPataIzq.obj");
->>>>>>> Stashed changes
+
 
 
 
