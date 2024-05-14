@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib botebasura2.mtl
+mtllib boteBasura2.mtl
 g default
 v 4.478185 3.469282 -5.118686
 v 4.488475 3.469282 -5.118742
