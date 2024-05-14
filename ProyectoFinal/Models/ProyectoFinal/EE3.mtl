@@ -613,6 +613,62 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd estatica_tele.PNG
 Ni 1.00
+newmtl papitas9:initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd tubo.png
+Ni 1.00
+newmtl papitas9:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd doritos-9.png
+Ni 1.00
+newmtl papitas10:initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd tubo.png
+Ni 1.00
+newmtl papitas10:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd doritos-9.png
+Ni 1.00
+newmtl papitas11:initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd tubo.png
+Ni 1.00
+newmtl papitas11:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd doritos-9.png
+Ni 1.00
+newmtl papitas12:initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd tubo.png
+Ni 1.00
+newmtl papitas12:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd doritos-9.png
+Ni 1.00
 newmtl pasted__lambert6SG
 illum 4
 Kd 0.00 0.00 0.00
