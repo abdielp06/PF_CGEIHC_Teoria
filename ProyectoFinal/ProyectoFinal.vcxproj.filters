@@ -70,6 +70,7 @@
     </None>
     <None Include="Shaders\animGlobo.frag" />
     <None Include="Shaders\animGlobo.vs" />
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="318126218_ProyectoFinal_Gpo08.cpp">
